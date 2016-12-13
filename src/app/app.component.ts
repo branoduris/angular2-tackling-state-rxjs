@@ -8,18 +8,12 @@ import { FilterSelectorComponent } from './filter-selector/';
 import { AddTodoComponent } from './add-todo/';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-root',
   template: `
-    <filter-selector></filter-selector> 
+    <filter-selector></filter-selector>
     <add-todo></add-todo>
     <todo-list></todo-list>
   `,
-  directives: [
-                TodoList,
-                AddTodoComponent,
-                FilterSelectorComponent
-              ],
   providers: stateAndDispatcher,
 })
 export class AppComponent {

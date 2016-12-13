@@ -5,20 +5,19 @@ import { Observer } from 'rxjs/Observer';
 import 'rxjs/add/operator/map';
 
 import { AppState, stateAndDispatcher, state, dispatcher, ToDoItem } from '../shared/stateAndDispatcher';
-import { Action, ToggleTodoAction } from '../shared/actions/';
+import { Action, ToggleTodoAction } from '../shared/actions';
 import { TodoComponent } from './todo/';
 
 @Component({
     selector: 'todo-list',
     template: `
-        <todo *ngFor="let t of filtered | async" 
-                [text]="t.text" 
+        <todo *ngFor="let t of filtered | async"
+                [text]="t.text"
                 [completed]="t.completed"
                 [id]="t.id"
                 (toggle)="emitToggle($event)">
         </todo>
-    `,
-    directives: [TodoComponent],
+    `
 })
 export class TodoList {
     constructor(@Inject(state) private state: Observable<AppState>,
